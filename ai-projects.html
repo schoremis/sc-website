@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Projects - Stam Choremis</title>
+    <meta name="author" content="Stam Choremis">
+    <meta
+      name="description"
+      content="AI and data science projects by Stam Choremis, including machine learning, predictive analytics, and computer vision work."
+    >
+    <meta property="og:site_name" content="Stam Choremis">
+    <meta property="og:title" content="AI Projects - Stam Choremis">
+    <meta
+      property="og:description"
+      content="AI and data science projects by Stam Choremis, including machine learning, predictive analytics, and computer vision work."
+    >
+    <meta property="og:image" content="https://img1.wsimg.com/isteam/videos/jajB2l1">
+    <meta name="theme-color" content="#010117">
+    <link rel="icon" href="https://img1.wsimg.com/isteam/ip/68a31cda-ed70-4d0d-8343-84d2d685971c/favicon/e3c15634-b5f1-477c-9e16-1646749f1874/3f5fcce3-9990-4fd7-95bc-cd77bff031a2.jpg/:/rs=w:32,h:32,m">
+    <style>
+      @import url("https://img1.wsimg.com/blobby/go/font/LeagueSpartan/league-spartan.css");
+
+      :root {
+        --deep: #010117;
+        --white: #ffffff;
+        --muted: #c6c8dd;
+        --line: rgb(255 255 255 / 24%);
+        --accent: #8fd3ff;
+        font-family: Helvetica, Arial, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        color: var(--white);
+        background: var(--deep);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .page {
+        min-height: 100vh;
+        position: relative;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        overflow-x: hidden;
+        isolation: isolate;
+      }
+
+      video,
+      .shade,
+      .stars {
+        position: fixed;
+        inset: 0;
+      }
+
+      video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -3;
+      }
+
+      .shade {
+        z-index: -2;
+        background:
+          radial-gradient(circle at 75% 35%, rgb(143 211 255 / 14%), transparent 26rem),
+          linear-gradient(90deg, rgb(1 1 23 / 88%) 0%, rgb(1 1 23 / 62%) 48%, rgb(1 1 23 / 22%) 100%);
+      }
+
+      .stars {
+        z-index: -1;
+        background-image:
+          radial-gradient(circle, rgb(255 255 255 / 70%) 1px, transparent 1px),
+          radial-gradient(circle, rgb(255 255 255 / 40%) 1px, transparent 1px);
+        background-position: 0 0, 44px 58px;
+        background-size: 120px 120px, 180px 180px;
+        opacity: 0.28;
+      }
+
+      header,
+      main,
+      footer {
+        width: min(1040px, calc(100% - 48px));
+        margin: 0 auto;
+      }
+
+      header {
+        min-height: 86px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .brand {
+        font-family: "League Spartan", Helvetica, Arial, sans-serif;
+        font-size: 22px;
+        line-height: 1;
+      }
+
+      nav {
+        display: flex;
+        gap: 22px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      nav a:hover {
+        color: var(--white);
+      }
+
+      main {
+        display: grid;
+        align-content: center;
+        padding: 72px 0 96px;
+      }
+
+      .eyebrow {
+        margin: 0 0 18px;
+        color: var(--accent);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1.7px;
+        text-transform: uppercase;
+      }
+
+      .projects {
+        width: min(900px, 100%);
+      }
+
+      .project-list {
+        border-top: 1px solid var(--line);
+      }
+
+      .project {
+        padding: 22px 0;
+        border-bottom: 1px solid var(--line);
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 24px;
+        align-items: start;
+      }
+
+      .project h1,
+      .project h2 {
+        margin: 0;
+        font-family: "League Spartan", Helvetica, Arial, sans-serif;
+        font-size: 24px;
+        line-height: 1.1;
+        letter-spacing: 0;
+      }
+
+      .project p {
+        margin: 10px 0 0;
+        max-width: 680px;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.55;
+      }
+
+      .project-link {
+        margin-top: 4px;
+        color: var(--accent);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .project-link:hover {
+        color: var(--white);
+      }
+
+      footer {
+        padding: 0 0 32px;
+        color: rgb(255 255 255 / 58%);
+        font-size: 12px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        video {
+          display: none;
+        }
+      }
+
+      @media (max-width: 720px) {
+        header {
+          min-height: 74px;
+          align-items: flex-start;
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        nav {
+          flex-wrap: wrap;
+          gap: 12px 18px;
+        }
+
+        main {
+          padding: 56px 0 72px;
+        }
+
+        .project {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <video
+        autoplay
+        loop
+        muted
+        playsinline
+        aria-hidden="true"
+        poster="https://img1.wsimg.com/isteam/videos/jajB2l1"
+        src="https://websites.godaddy.com/categories/v4/videos/raw/video/jajB2l1"
+      ></video>
+      <div class="shade" aria-hidden="true"></div>
+      <div class="stars" aria-hidden="true"></div>
+
+      <header>
+        <a class="brand" href="index.html">Stam Choremis</a>
+        <nav aria-label="Primary navigation">
+          <a href="index.html">Home</a>
+          <a href="ai-projects.html">AI Projects</a>
+          <a href="career-milestones.html">Milestones</a>
+          <a href="https://www.linkedin.com/in/stamch/" target="_blank" rel="noopener">LinkedIn</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="projects" aria-label="AI projects">
+          <h1 class="eyebrow">AI Projects</h1>
+          <div class="project-list">
+            <article class="project">
+              <div>
+                <h2>Stroke Prediction</h2>
+                <p>
+                  Machine learning models using electronic health records to predict stroke risk and identify
+                  high-impact factors such as age, glucose levels, hypertension, and heart disease.
+                </p>
+              </div>
+              <a
+                class="project-link"
+                href="https://github.com/schoremis/Phase_5_Project-S.Choremis"
+                target="_blank"
+                rel="noopener"
+              >
+                View Project
+              </a>
+            </article>
+
+            <article class="project">
+              <div>
+                <h2>Pneumonia Detection</h2>
+                <p>
+                  Computer vision model built with a convolutional neural network to detect pneumonia from
+                  pediatric chest X-ray images.
+                </p>
+              </div>
+              <a
+                class="project-link"
+                href="https://github.com/schoremis/Phase_4_Project-S.Choremis"
+                target="_blank"
+                rel="noopener"
+              >
+                View Project
+              </a>
+            </article>
+
+            <article class="project">
+              <div>
+                <h2>Customer Churn Prediction</h2>
+                <p>
+                  Predictive analytics pipeline for telecom customer churn, using machine learning to surface
+                  retention risk signals and customer behavior patterns.
+                </p>
+              </div>
+              <a
+                class="project-link"
+                href="https://github.com/schoremis/Phase_3_Project-S.Choremis"
+                target="_blank"
+                rel="noopener"
+              >
+                View Project
+              </a>
+            </article>
+
+            <article class="project">
+              <div>
+                <h2>Housing Price Predictions</h2>
+                <p>
+                  Regression models estimating real estate prices in King County, Washington, using property
+                  transaction data and key housing features.
+                </p>
+              </div>
+              <a
+                class="project-link"
+                href="https://github.com/schoremis/Phase_2_Project-S.Choremis"
+                target="_blank"
+                rel="noopener"
+              >
+                View Project
+              </a>
+            </article>
+
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <span>Copyright &copy; 2026 Stam Choremis - All Rights Reserved.</span>
+      </footer>
+    </div>
+  </body>
+</html>

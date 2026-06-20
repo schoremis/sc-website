@@ -3,122 +3,319 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>S. Choremis</title>
-    <meta name="author" content="S. Choremis">
+    <title>Stam Choremis</title>
+    <meta name="author" content="Stam Choremis">
     <meta
       name="description"
-      content="International business professional with over fifteen years of experience in manufacturing across the U.S. and Europe"
+      content="Senior Technical Program Manager at Amazon Leo with 15+ years across aerospace operations, SAP, master data, analytics, and cross-functional transformation."
     >
     <meta property="og:site_name" content="Stam Choremis">
     <meta property="og:title" content="Stam Choremis">
     <meta
       property="og:description"
-      content="International business professional with over fifteen years of experience in manufacturing across the U.S. and Europe"
+      content="Senior Technical Program Manager at Amazon Leo with 15+ years across aerospace operations, SAP, master data, analytics, and cross-functional transformation."
     >
     <meta property="og:image" content="https://img1.wsimg.com/isteam/videos/jajB2l1">
     <meta name="theme-color" content="#010117">
     <link rel="icon" href="https://img1.wsimg.com/isteam/ip/68a31cda-ed70-4d0d-8343-84d2d685971c/favicon/e3c15634-b5f1-477c-9e16-1646749f1874/3f5fcce3-9990-4fd7-95bc-cd77bff031a2.jpg/:/rs=w:32,h:32,m">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+      @import url("https://img1.wsimg.com/blobby/go/font/LeagueSpartan/league-spartan.css");
+
+      :root {
+        --deep: #010117;
+        --white: #ffffff;
+        --muted: #c6c8dd;
+        --line: rgb(255 255 255 / 24%);
+        --accent: #8fd3ff;
+        font-family: Helvetica, Arial, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        color: var(--white);
+        background: var(--deep);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .page {
+        min-height: 100vh;
+        position: relative;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        overflow-x: hidden;
+        isolation: isolate;
+      }
+
+      video,
+      .shade,
+      .stars {
+        position: absolute;
+        inset: 0;
+      }
+
+      video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -3;
+      }
+
+      .shade {
+        z-index: -2;
+        background:
+          radial-gradient(circle at 75% 35%, rgb(143 211 255 / 14%), transparent 26rem),
+          linear-gradient(90deg, rgb(1 1 23 / 88%) 0%, rgb(1 1 23 / 62%) 48%, rgb(1 1 23 / 22%) 100%);
+      }
+
+      .stars {
+        z-index: -1;
+        background-image:
+          radial-gradient(circle, rgb(255 255 255 / 70%) 1px, transparent 1px),
+          radial-gradient(circle, rgb(255 255 255 / 40%) 1px, transparent 1px);
+        background-position: 0 0, 44px 58px;
+        background-size: 120px 120px, 180px 180px;
+        opacity: 0.28;
+      }
+
+      header,
+      main,
+      footer {
+        width: min(1040px, calc(100% - 48px));
+        margin: 0 auto;
+      }
+
+      header {
+        min-height: 86px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .brand {
+        font-family: "League Spartan", Helvetica, Arial, sans-serif;
+        font-size: 22px;
+        line-height: 1;
+      }
+
+      nav {
+        display: flex;
+        gap: 22px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      nav a:hover {
+        color: var(--white);
+      }
+
+      main {
+        display: grid;
+        align-content: center;
+        gap: 54px;
+        padding: 72px 0 96px;
+      }
+
+      .hero {
+        width: min(680px, 100%);
+      }
+
+      .eyebrow {
+        margin: 0 0 18px;
+        color: var(--accent);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1.7px;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-family: "League Spartan", Helvetica, Arial, sans-serif;
+        font-size: clamp(31px, 4.9vw, 55px);
+        line-height: 0.96;
+        letter-spacing: 0;
+      }
+
+      .summary {
+        margin: 24px 0 0;
+        color: #ebeefc;
+        font-size: 21px;
+        line-height: 1.55;
+      }
+
+      .proof {
+        max-width: 760px;
+        margin: 34px 0 0;
+        padding: 18px 0;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px 28px;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .proof strong {
+        color: var(--white);
+        font-weight: 700;
+      }
+
+      .actions {
+        margin-top: 34px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      .button {
+        min-height: 52px;
+        padding: 15px 24px;
+        border: 2px solid currentColor;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      .button.primary,
+      .button:hover {
+        color: var(--deep);
+        background: var(--white);
+        border-color: var(--white);
+      }
+
+      .button.primary:hover {
+        color: var(--white);
+        background: transparent;
+      }
+
+      footer {
+        padding: 0 0 32px;
+        color: rgb(255 255 255 / 58%);
+        font-size: 12px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        video {
+          display: none;
+        }
+      }
+
+      @media (max-width: 720px) {
+        header {
+          min-height: 74px;
+          align-items: flex-start;
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        nav {
+          flex-wrap: wrap;
+          gap: 12px 18px;
+        }
+
+        main {
+          padding: 56px 0 72px;
+        }
+
+        .summary {
+          font-size: 18px;
+        }
+
+        .proof {
+          display: grid;
+          gap: 10px;
+        }
+
+        .button {
+          width: 100%;
+        }
+      }
+    </style>
   </head>
   <body>
-    <header class="site-header">
-      <div class="header-inner">
-        <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+    <div class="page">
+      <video
+        autoplay
+        loop
+        muted
+        playsinline
+        aria-hidden="true"
+        poster="https://img1.wsimg.com/isteam/videos/jajB2l1"
+        src="https://websites.godaddy.com/categories/v4/videos/raw/video/jajB2l1"
+      ></video>
+      <div class="shade" aria-hidden="true"></div>
+      <div class="stars" aria-hidden="true"></div>
 
-        <nav class="desktop-nav" aria-label="Primary navigation">
-          <a href="/" aria-current="page">Home</a>
-          <div class="nav-menu">
-            <button type="button">Profile</button>
-            <div class="nav-dropdown">
-              <a href="https://www.linkedin.com/in/stamch/" target="_blank" rel="noopener">LinkedIn Profile</a>
-            </div>
-          </div>
-          <div class="nav-menu">
-            <button type="button">Projects</button>
-            <div class="nav-dropdown">
-              <a href="https://github.com/schoremis" target="_blank" rel="noopener">AI Projects</a>
-            </div>
-          </div>
+      <header>
+        <a class="brand" href="index.html">Stam Choremis</a>
+        <nav aria-label="Primary navigation">
+          <a href="index.html">Home</a>
+          <a href="ai-projects.html">AI Projects</a>
+          <a href="career-milestones.html">Milestones</a>
+          <a href="https://www.linkedin.com/in/stamch/" target="_blank" rel="noopener">LinkedIn</a>
         </nav>
+      </header>
 
-        <a class="brand" href="/" aria-label="Stam Choremis home">Stam Choremis</a>
-        <div class="header-spacer" aria-hidden="true"></div>
-      </div>
-
-      <nav class="mobile-drawer" aria-label="Mobile navigation">
-        <button class="drawer-close" type="button" aria-label="Close navigation">&times;</button>
-        <a href="/" aria-current="page">Home</a>
-        <button type="button" class="drawer-toggle">Profile</button>
-        <div class="drawer-submenu">
-          <a href="https://www.linkedin.com/in/stamch/" target="_blank" rel="noopener">LinkedIn Profile</a>
-        </div>
-        <button type="button" class="drawer-toggle">Projects</button>
-        <div class="drawer-submenu">
-          <a href="https://github.com/schoremis" target="_blank" rel="noopener">AI Projects</a>
-        </div>
-      </nav>
-      <div class="notch" aria-hidden="true"></div>
-    </header>
-
-    <main>
-      <section class="hero" aria-label="Stam Choremis introduction">
-        <div class="hero-media" aria-hidden="true">
-          <video
-            autoplay
-            loop
-            muted
-            playsinline
-            poster="https://img1.wsimg.com/isteam/videos/jajB2l1"
-            src="https://websites.godaddy.com/categories/v4/videos/raw/video/jajB2l1"
-          ></video>
-        </div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <p>
-            International business professional with over fifteen years of experience in manufacturing across the U.S.
-            and Europe
+      <main>
+        <section class="hero" aria-label="Stam Choremis introduction">
+          <p class="eyebrow">Senior Technical Program Manager at Amazon Leo</p>
+          <h1>Aerospace, Technology, Transformation</h1>
+          <p class="summary">
+            International business and technical manager with 15+ years across the U.S. and Europe,
+            spanning SAP, AI, master data, analytics, enterprise planning, and cross-functional transformation.
           </p>
-          <div class="hero-actions">
-            <a class="outline-button" href="https://www.linkedin.com/in/stamch/" target="_blank" rel="noopener">
-              Resume
+
+          <div class="proof" aria-label="Career highlights">
+            <span><strong>700+</strong> satellites</span>
+            <span><strong>3</strong> countries</span>
+            <span><strong>84+</strong> KPIs</span>
+            <span><strong>10</strong> dashboards</span>
+            <span><strong>12</strong> ISO audit cycles</span>
+            <span><strong>14+</strong> direct reports</span>
+            <span><strong>2</strong> SAP ERP implementations</span>
+            <span><strong>6</strong> Transformation Projects</span>
+          </div>
+
+          <div class="actions">
+            <a class="button primary" href="https://www.linkedin.com/in/stamch/" target="_blank" rel="noopener">
+              LinkedIn Profile
             </a>
-            <a class="outline-button" href="https://github.com/schoremis" target="_blank" rel="noopener">
+            <a class="button" href="ai-projects.html">
               AI Projects
             </a>
+            <a class="button" href="career-milestones.html">
+              Career Milestones
+            </a>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
 
-    <footer class="site-footer">
-      <div class="footer-notch" aria-hidden="true"></div>
-      <a
-        class="social-link"
-        href="https://www.linkedin.com/in/stamch/"
-        target="_blank"
-        rel="noopener"
-        aria-label="LinkedIn Social Link"
-      >
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M5.181 4h13.634C19.468 4 20 4.518 20 5.153v13.692c0 .638-.532 1.155-1.184 1.155H5.181C4.53 20 4 19.483 4 18.845V5.153C4 4.517 4.53 4 5.181 4zm3.754 3.574a1.376 1.376 0 0 0-2.752 0A1.38 1.38 0 0 0 7.56 8.95c.758 0 1.375-.618 1.375-1.376zM8.75 9.998H6.372v7.635H8.75V9.999zm1.485 0h.003v7.633h2.371v-3.777c0-.995.19-1.96 1.425-1.96 1.217 0 1.233 1.14 1.233 2.025v3.714h2.372v-4.188c0-2.056-.444-3.637-2.847-3.637-1.159 0-1.933.633-2.25 1.233h-.031V9.999h-2.273v-.002z"></path>
-        </svg>
-      </a>
-      <p>Copyright &copy; 2025 S. Choremis - All Rights Reserved.</p>
-    </footer>
-
-    <aside class="cookie-banner" role="dialog" aria-labelledby="cookie-title" aria-live="polite">
-      <h1 id="cookie-title">This website uses cookies.</h1>
-      <p>
-        We use cookies to analyze website traffic and optimize your website experience. By accepting our use of cookies,
-        your data will be aggregated with all other user data.
-      </p>
-      <button class="cookie-accept" type="button">Accept</button>
-    </aside>
-
-    <script src="script.js"></script>
+      <footer>
+        <span>Copyright &copy; 2026 Stam Choremis - All Rights Reserved.</span>
+      </footer>
+    </div>
   </body>
 </html>
