@@ -7,13 +7,13 @@
     <meta name="author" content="Stam Choremis">
     <meta
       name="description"
-      content="Senior Technical Program Manager at Amazon Leo with 15+ years across aerospace operations, SAP, master data, analytics, and cross-functional transformation."
+      content="Senior Technical Program Manager at Amazon Leo with 15+ years across aerospace, technology, AI, enterprise planning, and transformation."
     >
     <meta property="og:site_name" content="Stam Choremis">
     <meta property="og:title" content="Stam Choremis">
     <meta
       property="og:description"
-      content="Senior Technical Program Manager at Amazon Leo with 15+ years across aerospace operations, SAP, master data, analytics, and cross-functional transformation."
+      content="Aerospace, technology, AI, enterprise planning, and transformation leadership."
     >
     <meta property="og:image" content="https://img1.wsimg.com/isteam/videos/jajB2l1">
     <meta name="theme-color" content="#010117">
@@ -34,9 +34,13 @@
         box-sizing: border-box;
       }
 
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 84px;
+      }
+
       body {
         margin: 0;
-        min-height: 100vh;
         color: var(--white);
         background: var(--deep);
         -webkit-font-smoothing: antialiased;
@@ -47,65 +51,98 @@
         text-decoration: none;
       }
 
-      .page {
-        min-height: 100vh;
-        position: relative;
-        display: grid;
-        grid-template-rows: auto 1fr auto;
-        overflow-x: hidden;
-        isolation: isolate;
-      }
-
-      video,
-      .shade,
+      .backgrounds,
+      .background,
+      .background video,
+      .background-shade,
       .stars {
-        position: absolute;
+        position: fixed;
         inset: 0;
       }
 
-      video {
+      .backgrounds {
+        z-index: -10;
+        overflow: hidden;
+        background: var(--deep);
+      }
+
+      .background {
+        opacity: 0;
+        will-change: opacity;
+        transition: opacity 140ms linear;
+      }
+
+      .background-home {
+        opacity: 1;
+      }
+
+      .background video {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        z-index: -3;
+        transform: scale(1.025);
       }
 
-      .shade {
-        z-index: -2;
+      .background-home video {
+        filter: brightness(0.6) saturate(0.82) contrast(1.05);
+      }
+
+      .background-ai video {
+        filter: brightness(0.5) saturate(0.68) contrast(1.1) hue-rotate(5deg);
+      }
+
+      .background-career video {
+        filter: brightness(0.48) saturate(0.62) contrast(1.12) hue-rotate(8deg);
+      }
+
+      .background-career .background-shade {
         background:
-          radial-gradient(circle at 75% 35%, rgb(143 211 255 / 14%), transparent 26rem),
-          linear-gradient(90deg, rgb(1 1 23 / 88%) 0%, rgb(1 1 23 / 62%) 48%, rgb(1 1 23 / 22%) 100%);
+          linear-gradient(180deg, transparent 54%, rgb(1 1 23 / 86%) 72%, var(--deep) 88%),
+          radial-gradient(circle at 75% 35%, rgb(143 211 255 / 13%), transparent 27rem),
+          linear-gradient(90deg, rgb(1 1 23 / 91%) 0%, rgb(1 1 23 / 68%) 50%, rgb(1 1 23 / 30%) 100%),
+          linear-gradient(180deg, rgb(1 1 23 / 18%), rgb(1 1 23 / 42%));
+      }
+
+      .background-contact video {
+        filter: brightness(0.55) saturate(0.72) contrast(1.08);
+      }
+
+      .background-shade {
+        background:
+          radial-gradient(circle at 75% 35%, rgb(143 211 255 / 13%), transparent 27rem),
+          linear-gradient(90deg, rgb(1 1 23 / 91%) 0%, rgb(1 1 23 / 68%) 50%, rgb(1 1 23 / 30%) 100%),
+          linear-gradient(180deg, rgb(1 1 23 / 18%), rgb(1 1 23 / 42%));
       }
 
       .stars {
-        z-index: -1;
+        pointer-events: none;
+        z-index: 1;
         background-image:
-          radial-gradient(circle, rgb(255 255 255 / 70%) 1px, transparent 1px),
-          radial-gradient(circle, rgb(255 255 255 / 40%) 1px, transparent 1px);
+          radial-gradient(circle, rgb(255 255 255 / 65%) 1px, transparent 1px),
+          radial-gradient(circle, rgb(255 255 255 / 36%) 1px, transparent 1px);
         background-position: 0 0, 44px 58px;
         background-size: 120px 120px, 180px 180px;
-        opacity: 0.28;
-      }
-
-      header,
-      main,
-      footer {
-        width: min(1040px, calc(100% - 48px));
-        margin: 0 auto;
+        opacity: 0.2;
       }
 
       header {
-        min-height: 86px;
+        position: fixed;
+        inset: 0 0 auto;
+        z-index: 20;
+        min-height: 84px;
+        padding: 0 max(24px, calc((100% - 1040px) / 2));
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 24px;
+        background: linear-gradient(180deg, rgb(1 1 23 / 76%), transparent);
       }
 
       .brand {
         font-family: "League Spartan", Helvetica, Arial, sans-serif;
         font-size: 22px;
         line-height: 1;
+        white-space: nowrap;
       }
 
       nav {
@@ -118,19 +155,22 @@
         text-transform: uppercase;
       }
 
-      nav a:hover {
+      nav a {
+        transition: color 180ms ease;
+      }
+
+      nav a:hover,
+      nav a.active {
         color: var(--white);
       }
 
-      main {
+      .section {
+        width: min(1040px, calc(100% - 48px));
+        min-height: 100svh;
+        margin: 0 auto;
+        padding: 120px 0 92px;
         display: grid;
         align-content: center;
-        gap: 54px;
-        padding: 72px 0 96px;
-      }
-
-      .hero {
-        width: min(680px, 100%);
       }
 
       .eyebrow {
@@ -142,15 +182,21 @@
         text-transform: uppercase;
       }
 
-      h1 {
-        margin: 0;
+      h1,
+      h2 {
         font-family: "League Spartan", Helvetica, Arial, sans-serif;
-        font-size: clamp(31px, 4.9vw, 55px);
-        line-height: 0.96;
         letter-spacing: 0;
       }
 
+      h1 {
+        margin: 0;
+        max-width: 760px;
+        font-size: clamp(31px, 4.9vw, 55px);
+        line-height: 0.96;
+      }
+
       .summary {
+        max-width: 760px;
         margin: 24px 0 0;
         color: #ebeefc;
         font-size: 21px;
@@ -158,7 +204,7 @@
       }
 
       .proof {
-        max-width: 760px;
+        max-width: 840px;
         margin: 34px 0 0;
         padding: 18px 0;
         border-top: 1px solid var(--line);
@@ -173,7 +219,6 @@
 
       .proof strong {
         color: var(--white);
-        font-weight: 700;
       }
 
       .actions {
@@ -190,11 +235,11 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        color: var(--white);
         font-size: 13px;
         font-weight: 700;
         letter-spacing: 1px;
         text-transform: uppercase;
+        transition: color 180ms ease, background 180ms ease;
       }
 
       .button.primary,
@@ -209,8 +254,114 @@
         background: transparent;
       }
 
+      .content {
+        width: min(900px, 100%);
+      }
+
+      .list {
+        border-top: 1px solid var(--line);
+      }
+
+      .item {
+        padding: 22px 0;
+        border-bottom: 1px solid var(--line);
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 24px;
+        align-items: start;
+      }
+
+      .item h2 {
+        margin: 0;
+        font-size: 24px;
+        line-height: 1.1;
+      }
+
+      .item p,
+      .roles {
+        margin: 10px 0 0;
+        max-width: 680px;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.55;
+      }
+
+      .roles {
+        padding: 0;
+        display: grid;
+        gap: 6px;
+        list-style: none;
+      }
+
+      .item-link {
+        margin-top: 4px;
+        color: var(--accent);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .item-link:hover {
+        color: var(--white);
+      }
+
+      .contact {
+        width: min(620px, 100%);
+      }
+
+      .contact h2 {
+        margin: 0;
+        font-size: clamp(30px, 3.6vw, 42px);
+        line-height: 1;
+      }
+
+      form {
+        margin-top: 32px;
+        padding-top: 28px;
+        border-top: 1px solid var(--line);
+        display: grid;
+        gap: 18px;
+      }
+
+      label {
+        display: grid;
+        gap: 8px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        border: 1px solid var(--line);
+        border-radius: 0;
+        padding: 15px 16px;
+        color: var(--white);
+        background: rgb(255 255 255 / 6%);
+        outline: none;
+        font: inherit;
+      }
+
+      textarea {
+        min-height: 132px;
+        resize: vertical;
+      }
+
+      input:focus,
+      textarea:focus {
+        border-color: var(--accent);
+        background: rgb(255 255 255 / 9%);
+      }
+
       footer {
-        padding: 0 0 32px;
+        width: min(1040px, calc(100% - 48px));
+        margin: -64px auto 0;
+        padding-bottom: 32px;
         color: rgb(255 255 255 / 58%);
         font-size: 12px;
         letter-spacing: 1px;
@@ -218,26 +369,42 @@
       }
 
       @media (prefers-reduced-motion: reduce) {
-        video {
+        html {
+          scroll-behavior: auto;
+        }
+
+        .background video {
           display: none;
+        }
+
+        .background {
+          transition: none;
         }
       }
 
       @media (max-width: 720px) {
         header {
-          min-height: 74px;
+          min-height: 94px;
+          padding: 16px 24px 22px;
           align-items: flex-start;
           flex-direction: column;
           justify-content: center;
+          gap: 12px;
         }
 
         nav {
-          flex-wrap: wrap;
-          gap: 12px 18px;
+          width: 100%;
+          gap: 10px 16px;
+          overflow-x: auto;
+          scrollbar-width: none;
         }
 
-        main {
-          padding: 56px 0 72px;
+        nav::-webkit-scrollbar {
+          display: none;
+        }
+
+        .section {
+          padding: 132px 0 82px;
         }
 
         .summary {
@@ -245,48 +412,81 @@
         }
 
         .proof {
-          gap: 10px 18px;
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 12px 18px;
+        }
+
+        .actions {
+          display: grid;
         }
 
         .button {
           width: 100%;
         }
+
+        .item {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
       }
     </style>
   </head>
   <body>
-    <div class="page">
-      <video
-        autoplay
-        loop
-        muted
-        playsinline
-        aria-hidden="true"
-        poster="https://img1.wsimg.com/isteam/videos/jajB2l1"
-        src="https://websites.godaddy.com/categories/v4/videos/raw/video/jajB2l1"
-      ></video>
-      <div class="shade" aria-hidden="true"></div>
-      <div class="stars" aria-hidden="true"></div>
+    <div class="backgrounds" aria-hidden="true">
+      <div class="background background-home" data-background="home">
+        <video
+          autoplay
+          loop
+          muted
+          playsinline
+          preload="auto"
+          src="https://websites.godaddy.com/categories/v4/videos/raw/video/jajB2l1"
+        ></video>
+        <div class="background-shade"></div>
+      </div>
+      <div class="background background-ai" data-background="ai">
+        <video autoplay loop muted playsinline preload="auto" src="Videos/AI-Globe.mp4"></video>
+        <div class="background-shade"></div>
+      </div>
+      <div class="background background-career" data-background="career">
+        <video autoplay loop muted playsinline preload="auto" src="Videos/Rocket.mp4"></video>
+        <div class="background-shade"></div>
+      </div>
+      <div class="background background-contact" data-background="contact">
+        <video
+          autoplay
+          loop
+          muted
+          playsinline
+          preload="auto"
+          src="https://websites.godaddy.com/categories/v4/videos/raw/video/uA41GmyyG8IMaxXdb"
+        ></video>
+        <div class="background-shade"></div>
+      </div>
+      <div class="stars"></div>
+    </div>
 
-      <header>
-        <a class="brand" href="index.html">Stam Choremis</a>
-        <nav aria-label="Primary navigation">
-          <a href="index.html">Home</a>
-          <a href="ai-projects.html">AI Projects</a>
-          <a href="career-milestones.html">Milestones</a>
-          <a href="https://www.linkedin.com/in/stamch/" target="_blank" rel="noopener">LinkedIn</a>
-        </nav>
-      </header>
+    <header>
+      <a class="brand" href="#home">Stam Choremis</a>
+      <nav aria-label="Primary navigation">
+        <a href="#home" data-nav="home">Home</a>
+        <a href="#career-milestones" data-nav="career-milestones">Milestones</a>
+        <a href="#ai-projects" data-nav="ai-projects">AI Projects</a>
+        <a href="#contact" data-nav="contact">Contact</a>
+        <a href="https://www.linkedin.com/in/stamch/" target="_blank" rel="noopener">LinkedIn</a>
+      </nav>
+    </header>
 
-      <main>
-        <section class="hero" aria-label="Stam Choremis introduction">
+    <main>
+      <section class="section" id="home">
+        <div>
           <p class="eyebrow">Senior Technical Program Manager at Amazon Leo</p>
           <h1>Aerospace, Technology, Transformation</h1>
           <p class="summary">
             International business and technical manager with 15+ years across the U.S. and Europe,
             spanning SAP, AI, master data, analytics, enterprise planning, and cross-functional transformation.
           </p>
-
           <div class="proof" aria-label="Career highlights">
             <span><strong>700+</strong> satellites</span>
             <span><strong>3</strong> countries</span>
@@ -297,24 +497,176 @@
             <span><strong>2</strong> SAP ERP implementations</span>
             <span><strong>6</strong> Transformation Projects</span>
           </div>
-
           <div class="actions">
-            <a class="button" href="career-milestones.html">
-              Career Milestones
-            </a>
-            <a class="button" href="ai-projects.html">
-              AI Projects
-            </a>
+            <a class="button" href="#career-milestones">Career Milestones</a>
+            <a class="button" href="#ai-projects">AI Projects</a>
             <a class="button primary" href="https://www.linkedin.com/in/stamch/" target="_blank" rel="noopener">
               LinkedIn Profile
             </a>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
 
-      <footer>
-        <span>Copyright &copy; 2026 Stam Choremis - All Rights Reserved.</span>
-      </footer>
-    </div>
+      <section class="section" id="ai-projects">
+        <div class="content">
+          <h2 class="eyebrow">AI Projects</h2>
+          <div class="list">
+            <article class="item">
+              <div>
+                <h2>Stroke Prediction</h2>
+                <p>Machine learning models using electronic health records to predict stroke risk and identify high-impact factors.</p>
+              </div>
+              <a class="item-link" href="https://github.com/schoremis/Phase_5_Project-S.Choremis" target="_blank" rel="noopener">View Project</a>
+            </article>
+            <article class="item">
+              <div>
+                <h2>Pneumonia Detection</h2>
+                <p>Computer vision model built with a convolutional neural network to detect pneumonia from pediatric chest X-ray images.</p>
+              </div>
+              <a class="item-link" href="https://github.com/schoremis/Phase_4_Project-S.Choremis" target="_blank" rel="noopener">View Project</a>
+            </article>
+            <article class="item">
+              <div>
+                <h2>Customer Churn Prediction</h2>
+                <p>Predictive analytics pipeline for telecom customer churn, using machine learning to surface retention risk signals.</p>
+              </div>
+              <a class="item-link" href="https://github.com/schoremis/Phase_3_Project-S.Choremis" target="_blank" rel="noopener">View Project</a>
+            </article>
+            <article class="item">
+              <div>
+                <h2>Housing Price Predictions</h2>
+                <p>Regression models estimating real estate prices in King County, Washington, using transaction data and key housing features.</p>
+              </div>
+              <a class="item-link" href="https://github.com/schoremis/Phase_2_Project-S.Choremis" target="_blank" rel="noopener">View Project</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="career-milestones">
+        <div class="content">
+          <h2 class="eyebrow">Career Milestones</h2>
+          <div class="list">
+            <article class="item">
+              <div>
+                <h2>Amazon Leo</h2>
+                <ul class="roles"><li>Senior Technical Program Manager (2026 - Present)</li></ul>
+              </div>
+              <a class="item-link" href="https://www.youtube.com/watch?v=JPN4ik8_t0g" target="_blank" rel="noopener">Video</a>
+            </article>
+            <article class="item">
+              <div>
+                <h2>Airbus US Space &amp; Defense</h2>
+                <ul class="roles"><li>Head of Business Processes &amp; Master Data Management (2024 - 2026)</li></ul>
+              </div>
+              <a class="item-link" href="https://airbusus.com/wp-content/uploads/2021/11/Airbus-U.S.-Seeing-Beyond-the-Horizon3.mp4?_=1" target="_blank" rel="noopener">Video</a>
+            </article>
+            <article class="item">
+              <div>
+                <h2>Airbus OneWeb Satellites</h2>
+                <ul class="roles">
+                  <li>Head of Business Processes &amp; Master Data Management (2021 - 2024)</li>
+                  <li>Master Planner: Production &amp; Materials (2019 - 2021)</li>
+                </ul>
+              </div>
+              <a class="item-link" href="https://vimeo.com/320542370?fl=pl&amp;fe=sh" target="_blank" rel="noopener">Video</a>
+            </article>
+            <article class="item">
+              <div>
+                <h2>Thrace Group</h2>
+                <ul class="roles">
+                  <li>Director: Planning, Distribution and Customer Service (2012 - 2019)</li>
+                  <li>Project Manager: SAP ERP Implementation (2017 - 2018)</li>
+                </ul>
+              </div>
+              <a class="item-link" href="https://www.youtube.com/watch?v=78BIl7Fypgg" target="_blank" rel="noopener">Video</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="contact">
+          <p class="eyebrow">Contact</p>
+          <h2>Let us connect.</h2>
+          <form id="contact-form">
+            <label>Name<input name="name" type="text" autocomplete="name" required></label>
+            <label>Email<input name="email" type="email" autocomplete="email" required></label>
+            <label>Message<textarea name="message" required></textarea></label>
+            <button class="button primary" type="submit">Send Message</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>Copyright &copy; 2026 Stam Choremis - All Rights Reserved.</footer>
+
+    <script>
+      const backgrounds = {
+        home: document.querySelector('[data-background="home"]'),
+        ai: document.querySelector('[data-background="ai"]'),
+        career: document.querySelector('[data-background="career"]'),
+        contact: document.querySelector('[data-background="contact"]')
+      };
+      const sections = Array.from(document.querySelectorAll(".section"));
+      const navLinks = Array.from(document.querySelectorAll("[data-nav]"));
+      let ticking = false;
+
+      function smoothstep(edge0, edge1, value) {
+        const x = Math.min(1, Math.max(0, (value - edge0) / (edge1 - edge0)));
+        return x * x * (3 - 2 * x);
+      }
+
+      function updateScene() {
+        const y = window.scrollY;
+        const vh = window.innerHeight;
+        const aiTop = document.getElementById("ai-projects").offsetTop;
+        const careerTop = document.getElementById("career-milestones").offsetTop;
+        const contactTop = document.getElementById("contact").offsetTop;
+        const aiIn = smoothstep(aiTop - vh * 0.72, aiTop + vh * 0.08, y);
+        const careerIn = smoothstep(careerTop - vh * 0.72, careerTop + vh * 0.08, y);
+        const contactIn = smoothstep(contactTop - vh * 0.68, contactTop + vh * 0.08, y);
+
+        backgrounds.home.style.opacity = String(1 - aiIn);
+        backgrounds.ai.style.opacity = String(aiIn * (1 - careerIn));
+        backgrounds.career.style.opacity = String(careerIn * (1 - contactIn));
+        backgrounds.contact.style.opacity = String(contactIn);
+
+        const focusY = y + vh * 0.46;
+        let active = sections[0].id;
+        for (const section of sections) {
+          if (section.offsetTop <= focusY) active = section.id;
+        }
+        navLinks.forEach((link) => link.classList.toggle("active", link.dataset.nav === active));
+        ticking = false;
+      }
+
+      window.addEventListener("scroll", () => {
+        if (!ticking) {
+          requestAnimationFrame(updateScene);
+          ticking = true;
+        }
+      }, { passive: true });
+      window.addEventListener("resize", updateScene);
+      document.querySelectorAll(".background video").forEach((video) => {
+        video.defaultMuted = true;
+        video.muted = true;
+        video.volume = 0;
+      });
+      updateScene();
+
+      document.getElementById("contact-form").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const data = new FormData(event.currentTarget);
+        const body = [
+          "Name: " + data.get("name"),
+          "Email: " + data.get("email"),
+          "",
+          data.get("message")
+        ].join("\n");
+        window.location.href = "mailto:stamch@gmail.com?subject=" +
+          encodeURIComponent("Website contact message") + "&body=" + encodeURIComponent(body);
+      });
+    </script>
   </body>
 </html>
