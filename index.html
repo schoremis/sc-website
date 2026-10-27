@@ -449,7 +449,8 @@
       .summary {max-width:690px;font-size:18px;line-height:1.65;}
       .section {width:min(1160px,calc(100% - 64px));padding:144px 0 108px;}
       #home {min-height:100svh;}
-      .proof {max-width:none;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px;margin-top:38px;padding:26px 0;}
+      .proof {max-width:none;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:38px;padding:26px 0;}
+      .proof strong {font-variant-numeric:tabular-nums;white-space:nowrap;}
       .proof strong {font-family:Helvetica,Arial,sans-serif;font-size:35px;font-weight:400;line-height:1.1;margin-bottom:12px;}
       .proof b {display:block;font-size:12px;font-weight:700;text-transform:uppercase;line-height:1.5;color:#fff;}
       .proof small {display:block;font-size:12px;line-height:1.6;margin-top:8px;color:var(--muted);}
@@ -474,6 +475,12 @@
         .proof small{font-size:12px;}
         .content > .eyebrow{font-size:25px;}
       }
+      h1, .item h2, #ai-projects .eyebrow, a[href="#ai-projects"] {text-transform:none;}
+      .resume-request {display:flex;align-items:center;gap:12px;min-height:44px;text-transform:none;font-size:15px;font-weight:400;}
+      .resume-request input {width:20px;height:20px;margin:0;padding:0;flex:0 0 20px;accent-color:#fff;}
+      input:not([type="checkbox"]), textarea {font-size:16px;font-weight:400;text-transform:none;}
+      #contact {min-height:100svh;padding-bottom:120px;}
+      @media(max-width:720px){html{scroll-padding-top:125px;}#contact{align-content:start;}footer{margin:0 auto;}nav{flex-shrink:0;}form{gap:16px;}}
     </style>
   </head>
   <body>
@@ -526,7 +533,7 @@
       <section class="section" id="home">
         <div>
           <p class="eyebrow">Senior Technical Program Manager at Amazon Leo</p>
-          <h1>Aerospace, Technology, Transformation</h1>
+          <h1>Space &amp; Tech</h1>
           <p class="summary">International business and technical manager with 15+ years across the U.S. and Europe, leading enterprise systems, data governance, and operational transformation.</p>
           <div class="proof" aria-label="Career highlights">
 <span><strong>1700+</strong><b>Satellites Delivered</b><small>Amazon Leo and Airbus OneWeb</small></span>
@@ -534,6 +541,7 @@
 <span><strong>14+</strong><b>Direct Reports</b><small>Across 10 Functions</small></span>
 <span><strong>2</strong><b>SAP ERP Implementations</b><small>Delivered 2 SAP Implementations. Expert in SAP (PP, MM, SD, WM)</small></span>
 <span><strong>84+ / 10</strong><b>KPIs / Dashboards</b><small>Implemented for real-time insights &amp; operations improvement</small></span>
+<span><strong>6</strong><b>Transformation Projects</b><small>Led 6 cross-functional business critical projects.</small></span>
 </div>
           <div class="actions">
             <a class="button" href="#career-milestones">Career Milestones</a>
@@ -594,28 +602,28 @@
             <article class="item">
               <div>
                 <h2>Stroke Prediction</h2>
-                <p>Comparing classification models for stroke-risk prediction using health-record data.</p><p class="methods">Python &middot; Logistic Regression &middot; Random Forest &middot; XGBoost</p>
+                <p>Machine learning models using electronic health records to predict stroke risk and identify high-impact factors.</p><p class="methods">Python &middot; Logistic Regression &middot; Random Forest &middot; XGBoost</p>
               </div>
               <a class="item-link" href="https://github.com/schoremis/Phase_5_Project-S.Choremis" target="_blank" rel="noopener">View Project</a>
             </article>
             <article class="item">
               <div>
                 <h2>Pneumonia Detection</h2>
-                <p>Exploring pneumonia classification from pediatric chest X-ray images.</p><p class="methods">TensorFlow &middot; Convolutional Neural Networks</p>
+                <p>Computer vision model built with a convolutional neural network to detect pneumonia from pediatric chest X-ray images.</p><p class="methods">TensorFlow &middot; Convolutional Neural Networks</p>
               </div>
               <a class="item-link" href="https://github.com/schoremis/Phase_4_Project-S.Choremis" target="_blank" rel="noopener">View Project</a>
             </article>
             <article class="item">
               <div>
                 <h2>Customer Churn Prediction</h2>
-                <p>Identifying customer churn patterns in telecom data.</p><p class="methods">Random Forest &middot; Gradient Boosting</p>
+                <p>Predictive analytics pipeline for telecom customer churn, using machine learning to surface retention risk signals.</p><p class="methods">Random Forest &middot; Gradient Boosting</p>
               </div>
               <a class="item-link" href="https://github.com/schoremis/Phase_3_Project-S.Choremis" target="_blank" rel="noopener">View Project</a>
             </article>
             <article class="item">
               <div>
                 <h2>Housing Price Predictions</h2>
-                <p>Estimating King County home prices from property and transaction data.</p><p class="methods">Linear Regression &middot; XGBoost</p>
+                <p>Regression models estimating real estate prices in King County, Washington, using transaction data and key housing features.</p><p class="methods">Linear Regression &middot; XGBoost</p>
               </div>
               <a class="item-link" href="https://github.com/schoremis/Phase_2_Project-S.Choremis" target="_blank" rel="noopener">View Project</a>
             </article>
@@ -631,7 +639,9 @@
             <label>Name<input name="name" type="text" autocomplete="name" required></label>
             <label>Email<input name="email" type="email" autocomplete="email" required></label>
             <label>Message<textarea name="message" required></textarea></label>
+            <label class="resume-request"><input name="resume" type="checkbox">Request a copy of my resume</label>
             <button class="button primary" type="submit">Send Message</button><p id="form-status" role="status" style="margin:0;color:var(--muted);font-size:13px"></p>
+            <a class="spotlight" href="mailto:sc@stamch.com">Email directly: sc@stamch.com</a>
           </form>
         </div>
       </section>
@@ -693,15 +703,47 @@
       });
       updateScene();
 
+      const rocket = backgrounds.career.querySelector("video");
+      rocket.defaultPlaybackRate = 0.7;
+      rocket.playbackRate = 0.7;
+      rocket.addEventListener("loadedmetadata", () => { rocket.playbackRate = 0.7; });
+
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+      const counters = Array.from(document.querySelectorAll(".proof strong"));
+      if (!reducedMotion.matches && "IntersectionObserver" in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            observer.unobserve(entry.target);
+            const element = entry.target;
+            const finalText = element.textContent;
+            const start = performance.now();
+            element.setAttribute("aria-label", finalText);
+            function tick(now) {
+              const progress = Math.min(1, (now - start) / 1800);
+              const eased = 1 - Math.pow(1 - progress, 3);
+              element.textContent = progress === 1 || reducedMotion.matches
+                ? finalText
+                : finalText.replace(/\d+/g, (number) => String(Math.floor(Number(number) * eased)));
+              if (progress < 1 && !reducedMotion.matches) requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+          });
+        }, { threshold: 0.6 });
+        counters.forEach((counter) => observer.observe(counter));
+      }
+
       document.getElementById("contact-form").addEventListener("submit", function (event) {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         const body = [
           "Name: " + data.get("name"),
           "Email: " + data.get("email"),
+          "Resume requested: " + (data.has("resume") ? "Yes" : "No"),
           "",
           data.get("message")
         ].join("\n");
+        document.getElementById("form-status").textContent = "Continue in your email app to send. If it does not open, use the email link below. Your entries will remain here.";
         window.location.href = "mailto:stamch@gmail.com?subject=" +
           encodeURIComponent("Website contact message") + "&body=" + encodeURIComponent(body);
       });
