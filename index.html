@@ -62,6 +62,7 @@
 
       .backgrounds {
         z-index: -10;
+        pointer-events: none;
         overflow: hidden;
         background: var(--deep);
       }
@@ -77,10 +78,19 @@
       }
 
       .background video {
+        pointer-events: none;
         width: 100%;
         height: 100%;
         object-fit: cover;
         transform: scale(1.025);
+      }
+
+      .background video::-webkit-media-controls,
+      .background video::-webkit-media-controls-enclosure,
+      .background video::-webkit-media-controls-panel,
+      .background video::-webkit-media-controls-start-playback-button {
+        display: none !important;
+        -webkit-appearance: none;
       }
 
       .background-home video {
@@ -491,6 +501,10 @@
           loop
           muted
           playsinline
+          webkit-playsinline
+          disablepictureinpicture
+          disableremoteplayback
+          tabindex="-1"
           preload="auto"
           src="https://websites.godaddy.com/categories/v4/videos/raw/video/jajB2l1"
         ></video>
@@ -536,9 +550,9 @@
           <h1>Space &amp; Tech</h1>
           <p class="summary">International business and technical manager with 15+ years across the U.S. and Europe, leading enterprise systems, data governance, and operational transformation.</p>
           <div class="proof" aria-label="Career highlights">
-<span><strong>1700+</strong><b>Satellites Delivered</b><small>Amazon Leo and Airbus OneWeb</small></span>
-<span><strong>3</strong><b>Countries</b><small>Managed cross-cultural teams in the U.S., France, and Greece</small></span>
-<span><strong>14+</strong><b>Direct Reports</b><small>Across 10 Functions</small></span>
+<span><strong>1700+</strong><b>Satellites Delivered</b><small>Contributed to satellite manufacturing programs at Airbus OneWeb and Amazon Leo</small></span>
+<span><strong>3</strong><b>Countries</b><small>Led international teams across the U.S., France, and Greece.</small></span>
+<span><strong>14+</strong><b>Direct Reports</b><small>Managed multidisciplinary teams across 10 business functions.</small></span>
 <span><strong>2</strong><b>SAP ERP Implementations</b><small>Delivered 2 SAP Implementations. Expert in SAP (PP, MM, SD, WM)</small></span>
 <span><strong>84+ / 10</strong><b>KPIs / Dashboards</b><small>Implemented for real-time insights &amp; operations improvement</small></span>
 <span><strong>6</strong><b>Transformation Projects</b><small>Led 6 cross-functional business critical projects.</small></span>
@@ -697,6 +711,12 @@
       }, { passive: true });
       window.addEventListener("resize", updateScene);
       document.querySelectorAll(".background video").forEach((video) => {
+        video.controls = false;
+        video.playsInline = true;
+        video.setAttribute("webkit-playsinline", "");
+        video.setAttribute("disablepictureinpicture", "");
+        video.setAttribute("disableremoteplayback", "");
+        video.setAttribute("tabindex", "-1");
         video.defaultMuted = true;
         video.muted = true;
         video.volume = 0;
